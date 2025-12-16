@@ -2,7 +2,6 @@ package files
 
 import (
 	"os"
-	"path"
 	"path/filepath"
 
 	"github.com/pkg/errors"
@@ -72,7 +71,7 @@ func isSolutionFile(info os.FileInfo) bool {
 	if info.Name() == "go.work" {
 		return true
 	}
-	if path.Ext(info.Name()) == ".sql" {
+	if filepath.Ext(info.Name()) == ".sql" {
 		return true
 	}
 
