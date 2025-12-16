@@ -72,7 +72,7 @@ func isSolutionFile(info os.FileInfo) bool {
 	if info.Name() == "go.work" {
 		return true
 	}
-	if path.Ext(info.Name()) != ".sql" {
+	if path.Ext(info.Name()) == ".sql" {
 		return true
 	}
 
