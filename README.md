@@ -19,7 +19,7 @@ sudo /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ThreeDotsLabs/cl
 ### Nix (macOS, Linux)
 
 ```sh
-nix profile install github:ThreeDotsLabs/cli
+nix profile add github:ThreeDotsLabs/cli
 ```
 
 ### Script (Windows)
