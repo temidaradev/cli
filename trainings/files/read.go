@@ -25,7 +25,7 @@ func (f Files) ReadSolutionFiles(trainingRootFs afero.Fs, dir string) ([]*genpro
 			if info.IsDir() {
 				return nil
 			}
-			if filepath.Ext(info.Name()) != ".go" && info.Name() != "go.mod" {
+			if !isSolutionFile(info) {
 				return nil
 			}
 
@@ -59,4 +59,21 @@ func (f Files) ReadSolutionFiles(trainingRootFs afero.Fs, dir string) ([]*genpro
 	}
 
 	return files, nil
+}
+
+func isSolutionFile(info os.FileInfo) bool {
+	if filepath.Ext(info.Name()) == ".go" {
+		return true
+	}
+	if info.Name() == "go.mod" {
+		return true
+	}
+	if info.Name() == "go.work" {
+		return true
+	}
+	if filepath.Ext(info.Name()) == ".sql" {
+		return true
+	}
+
+	return false
 }
